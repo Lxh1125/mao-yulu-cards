@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>毛泽东语录 - 闪卡</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="corner-decoration top-left"></div>
+  <div class="corner-decoration top-right"></div>
+  <div class="corner-decoration bottom-left"></div>
+  <div class="corner-decoration bottom-right"></div>
+
+  <div class="container">
+    <header class="header">
+      <h1>毛主席语录</h1>
+      <p class="subtitle">毛泽东思想闪卡集</p>
+    </header>
+
+    <div class="card-container">
+      <div class="card" id="card">
+        <div class="card-face card-front">
+          <div class="card-content">
+            <span class="card-number">01</span>
+            <span class="card-category">共产党</span>
+            <p class="card-quote">领导我们事业的核心力量是中国共产党。</p>
+            <div class="card-hint">
+              <span>↔</span> 点击翻转查看出处 <span>↔</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-face card-back">
+          <div class="card-back-content">
+            <h3 class="card-back-title">语录出处</h3>
+            <p class="card-back-source">1954年9月15日</p>
+          </div>
+          <div class="card-back-hint">点击返回正面</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <span class="progress" id="progressText">第 1 条，共 150 条</span>
+    </div>
+
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
