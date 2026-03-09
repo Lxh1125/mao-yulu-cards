@@ -1,14 +1,14 @@
 const backgroundImages = [
-  "https://images.unsplash.com/photo-1551892374-ecf8754cf8b0?w=800",
-  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800",
-  "https://images.unsplash.com/photo-1517816743773-6e0fd518b4a6?w=800",
-  "https://images.unsplash.com/photo-1562790888-2d4978d440c4?w=800",
-  "https://images.unsplash.com/photo-1543919106-805c34e0f2a3?w=800",
-  "https://images.unsplash.com/photo-1531306728370-e2ebd9d7e99f?w=800",
-  "https://images.unsplash.com/photo-1509266272358-7701da638078?w=800",
-  "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800",
-  "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800",
-  "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?w=800"
+  "https://picsum.photos/seed/greatwall/800/1200",
+  "https://picsum.photos/seed/mountaishan/800/1200",
+  "https://picsum.photos/seed/yellowmountain/800/1200",
+  "https://picsum.photos/seed/guilin/800/1200",
+  "https://picsum.photos/seed/lijiang/800/1200",
+  "https://picsum.photos/seed/dunhuang/800/1200",
+  "https://picsum.photos/seed/threegorges/800/1200",
+  "https://picsum.photos/seed/forbiddencity/800/1200",
+  "https://picsum.photos/seed/pavilion/800/1200",
+  "https://picsum.photos/seed/watersfall/800/1200"
 ];
 
 function getRandomImage() {

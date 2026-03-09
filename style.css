@@ -362,21 +362,106 @@ body {
   background: linear-gradient(315deg, var(--gold) 0%, transparent 50%);
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .header h1 {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
+  }
+  
+  .header .subtitle {
+    font-size: 0.9rem;
   }
   
   .card-container {
-    height: 480px;
+    height: 500px;
   }
   
   .card-quote {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
+  }
+  
+  .card-content {
+    padding: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 15px;
+  }
+  
+  .header {
+    margin-bottom: 20px;
+  }
+  
+  .header h1 {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+  }
+  
+  .header .subtitle {
+    font-size: 0.8rem;
+    margin-top: 8px;
+  }
+  
+  .header::before,
+  .header::after {
+    font-size: 0.9rem;
+    margin: 0 8px;
+  }
+  
+  .card-container {
+    height: 420px;
+  }
+  
+  .card-quote {
+    font-size: 1.2rem;
+    line-height: 1.6;
   }
   
   .card-number {
-    font-size: 2rem;
+    font-size: 1.8rem;
+  }
+  
+  .card-category {
+    font-size: 0.75rem;
+    padding: 4px 15px;
+    margin-bottom: 15px;
+  }
+  
+  .card-content {
+    padding: 20px;
+  }
+  
+  .card-hint {
+    font-size: 0.7rem;
+    bottom: 15px;
+  }
+  
+  .controls {
+    margin-top: 20px;
+  }
+  
+  .progress {
+    font-size: 0.85rem;
+  }
+  
+  .corner-decoration {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 360px) {
+  .header h1 {
+    font-size: 1.3rem;
+  }
+  
+  .card-container {
+    height: 380px;
+  }
+  
+  .card-quote {
+    font-size: 1.1rem;
   }
 }
 
