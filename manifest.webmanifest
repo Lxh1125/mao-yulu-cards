@@ -1,0 +1,1 @@
+{"name": "毛泽东语录 · 精选60", "short_name": "语录60", "lang": "zh-CN", "start_url": "./", "scope": "./", "display": "standalone", "background_color": "#58101a", "theme_color": "#58101a", "icons": [{"src": "assets/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any"}, {"src": "assets/apple-touch-icon.png", "sizes": "180x180", "type": "image/png", "purpose": "any"}]}

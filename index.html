@@ -1,55 +1,27 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>毛泽东语录 - 闪卡</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⭐</text></svg>">
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#58101a"><meta name="description" content="精选60条毛泽东语录，沉浸式全屏阅读，轻点喜欢。">
+<title>毛泽东语录 · 精选60</title>
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png"><link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="style.css"><script src="data.js" defer></script><script src="landscapes.js" defer></script><script src="script.js" defer></script>
 </head>
 <body>
-  <div class="corner-decoration top-left"></div>
-  <div class="corner-decoration top-right"></div>
-  <div class="corner-decoration bottom-left"></div>
-  <div class="corner-decoration bottom-right"></div>
-
-  <div class="container">
-    <header class="header">
-      <h1>毛主席语录</h1>
-      <p class="subtitle">毛泽东思想闪卡集</p>
-    </header>
-
-    <div class="card-container">
-      <div class="card" id="card">
-        <div class="card-face card-front">
-          <div class="card-content">
-            <span class="card-number">01</span>
-            <span class="card-category">共产党</span>
-            <p class="card-quote">领导我们事业的核心力量是中国共产党。</p>
-            <div class="card-hint">
-              <span>↔</span> 点击翻转查看出处 <span>↔</span>
-            </div>
-          </div>
-        </div>
-        <div class="card-face card-back">
-          <div class="card-back-content">
-            <h3 class="card-back-title">语录出处</h3>
-            <p class="card-back-source">1954年9月15日</p>
-          </div>
-          <div class="card-back-hint">点击返回正面</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="controls">
-      <span class="progress" id="progressText">第 1 条，共 150 条</span>
-    </div>
-
-    <div class="progress-bar">
-      <div class="progress-fill" id="progressFill"></div>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
-</body>
-</html>
+<div class="stage" id="stage">
+<main id="card" class="card" aria-label="毛泽东语录闪卡，点击文字或背景换下一张">
+  <img id="artworkBackdrop" class="artwork-backdrop" src="assets/photos/guilin.jpg" alt="" aria-hidden="true">
+  <img id="artwork" class="artwork" src="assets/photos/guilin.jpg" alt="" aria-hidden="true">
+  <div class="veil" aria-hidden="true"></div><div class="gold-frame" aria-hidden="true"></div>
+  <header class="card-top"><span id="cardCategory" class="card-category">调查研究</span><span id="cardNumber" class="card-number">01 / 60</span></header>
+  <div class="quote-area"><p id="quote" class="quote" aria-live="polite">没有调查，<br>没有发言权。</p></div>
+  <button id="favorite" class="favorite" type="button" aria-label="喜欢这张卡片" aria-pressed="false"><span class="heart" aria-hidden="true">♡</span><span id="favoriteLabel">喜欢</span></button>
+  <footer class="card-bottom"><button id="previous" class="arrow-button" type="button" aria-label="上一张" disabled>←</button><button id="showSource" type="button" aria-controls="sourcePanel" aria-expanded="false">出处</button><span id="photoLocation">广西 · 桂林漓江</span><button id="next" class="arrow-button" type="button" aria-label="下一张">→</button></footer>
+  <p id="notice" class="notice" role="status"></p>
+<div id="effects" class="effects" aria-hidden="true"></div>
+</main>
+</div>
+<dialog id="sourcePanel" class="source-panel" aria-labelledby="sourceHeading"><div class="source-content"><header><h2 id="sourceHeading">语录出处</h2><button id="closeSource" type="button" aria-label="关闭出处">×</button></header><p id="sourceDetail"></p><a id="originalSource" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a><p id="verificationNote"></p><p id="photoAttribution"></p></div></dialog>
+<noscript><p class="noscript">请启用 JavaScript，以切换语录和保存喜欢。</p></noscript>
+</body></html>
