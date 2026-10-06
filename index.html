@@ -9,16 +9,19 @@
 <link rel="stylesheet" href="style.css"><script src="data.js" defer></script><script src="landscapes.js" defer></script><script src="script.js" defer></script>
 </head>
 <body>
+<div class="stage" id="stage">
 <main id="card" class="card" aria-label="毛泽东语录闪卡，点击文字或背景换下一张">
   <img id="artworkBackdrop" class="artwork-backdrop" src="assets/photos/guilin.jpg" alt="" aria-hidden="true">
   <img id="artwork" class="artwork" src="assets/photos/guilin.jpg" alt="" aria-hidden="true">
   <div class="veil" aria-hidden="true"></div><div class="gold-frame" aria-hidden="true"></div>
-  <header class="card-top"><span id="cardCategory">调查研究</span><span id="cardNumber">01 / 60</span></header>
+  <header class="card-top"><span id="cardCategory" class="card-category">调查研究</span><span id="cardNumber" class="card-number">01 / 60</span></header>
   <div class="quote-area"><p id="quote" class="quote" aria-live="polite">没有调查，<br>没有发言权。</p></div>
   <button id="favorite" class="favorite" type="button" aria-label="喜欢这张卡片" aria-pressed="false"><span class="heart" aria-hidden="true">♡</span><span id="favoriteLabel">喜欢</span></button>
-  <footer class="card-bottom"><button id="previous" type="button" aria-label="上一张" disabled>←</button><button id="showSource" type="button" aria-controls="sourcePanel" aria-expanded="false">出处</button><span id="photoLocation">广西 · 桂林漓江</span><button id="next" type="button" aria-label="下一张">→</button></footer>
+  <footer class="card-bottom"><button id="previous" class="arrow-button" type="button" aria-label="上一张" disabled>←</button><button id="showSource" type="button" aria-controls="sourcePanel" aria-expanded="false">出处</button><span id="photoLocation">广西 · 桂林漓江</span><button id="next" class="arrow-button" type="button" aria-label="下一张">→</button></footer>
   <p id="notice" class="notice" role="status"></p>
+<div id="effects" class="effects" aria-hidden="true"></div>
 </main>
+</div>
 <dialog id="sourcePanel" class="source-panel" aria-labelledby="sourceHeading"><div class="source-content"><header><h2 id="sourceHeading">语录出处</h2><button id="closeSource" type="button" aria-label="关闭出处">×</button></header><p id="sourceDetail"></p><a id="originalSource" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a><p id="verificationNote"></p><p id="photoAttribution"></p></div></dialog>
 <noscript><p class="noscript">请启用 JavaScript，以切换语录和保存喜欢。</p></noscript>
 </body></html>

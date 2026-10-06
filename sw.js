@@ -1,4 +1,4 @@
-const CACHE = 'zhixing-static-v4';
+const CACHE = 'zhixing-static-v5';
 const FILES = ['./','./index.html','./style.css','./script.js','./data.js','./manifest.webmanifest','./landscapes.js','./assets/photos/great-wall.jpg','./assets/photos/huangshan.jpg','./assets/photos/guilin.jpg','./assets/photos/dunhuang.jpg','./assets/photos/west-lake.jpg','./assets/icon.svg','./assets/apple-touch-icon.png'];
 self.addEventListener('install', event => {event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(FILES)));});
 self.addEventListener('activate', event => {event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(key => key.startsWith('zhixing-static-') && key !== CACHE).map(key => caches.delete(key)))).then(() => self.clients.claim()));});
