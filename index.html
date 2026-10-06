@@ -16,15 +16,16 @@
 <section class="reader" aria-label="语录阅读器">
 <div class="reader-bar"><label for="category" class="sr-only">阅读主题</label><select id="category"><option value="all">全部主题</option></select><button id="collection" class="quiet-button" type="button" aria-pressed="false">我的收藏 <span id="favoriteCount">0</span></button></div>
 <div class="card-stack"><button id="card" class="card" type="button" aria-label="阅读语录，点击下一张">
+<img id="artworkBackdrop" class="artwork-backdrop" src="assets/photos/great-wall.jpg" alt="" aria-hidden="true">
 <img id="artwork" class="artwork" src="assets/photos/great-wall.jpg" alt="" aria-hidden="true">
 <span class="card-top"><span id="cardCategory" class="card-category">调查研究</span><span id="cardNumber" class="card-number">023</span></span>
-<span id="quote" class="quote" aria-live="polite">没有调查就没有发言权。</span>
+<span id="quote" class="quote" aria-live="polite">没有调查，没有发言权。</span>
 <span id="source" class="source">1930年5月，《反对本本主义》</span><span class="card-bottom"><span>轻点卡片 · 下一条</span><span aria-hidden="true">↔</span></span></button></div>
 <div id="empty" class="empty" hidden><p>这里还没有收藏。</p><p>遇到有启发的句子，点一下「收藏」。</p><button id="backToAll" type="button">继续阅读</button></div>
-<div class="reading-status"><span id="progressText" role="status">已读 1 / 150</span><span id="photoLocation" class="art-credit">北京 · 慕田峪长城</span></div>
-<div class="progress-bar" role="progressbar" aria-label="已读语录" aria-valuemin="0" aria-valuemax="150" aria-valuenow="1"><div id="progressFill" class="progress-fill"></div></div>
+<div class="reading-status"><span id="progressText" role="status">正在加载语录</span><span id="photoLocation" class="art-credit">北京 · 慕田峪长城</span></div>
+<div class="progress-bar" role="progressbar" aria-label="已读语录" aria-valuemin="0" aria-valuemax="102" aria-valuenow="1"><div id="progressFill" class="progress-fill"></div></div>
 <div class="actions"><button id="previous" type="button" aria-label="上一张">←</button><button id="favorite" type="button" aria-pressed="false">＋ 收藏</button><button id="showSource" type="button" aria-expanded="false" aria-controls="sourcePanel">查看出处</button><button id="next" class="primary" type="button">下一张 <span aria-hidden="true">→</span></button></div>
-<section id="sourcePanel" class="source-panel" aria-label="语录出处" hidden><p class="eyebrow">语录出处</p><p id="sourceDetail"></p><p class="source-note">语录为摘录，理解时请结合原文背景。</p><p id="photoAttribution" class="photo-attribution"></p><button id="closeSource" type="button" class="quiet-button">收起 ↑</button></section>
+<section id="sourcePanel" class="source-panel" aria-label="语录出处" hidden><p class="eyebrow">语录出处</p><p id="sourceDetail"></p><a id="originalSource" class="original-source" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a><p id="verificationNote" class="source-note"></p><p class="source-note">语录为摘录，理解时请结合原文背景。</p><p id="photoAttribution" class="photo-attribution"></p><button id="closeSource" type="button" class="quiet-button">收起 ↑</button></section>
 <p id="notice" class="notice" role="status"></p><p class="keyboard-hint">← → 切换 · 空格下一张 · S 查看出处</p>
 </section>
 </main>

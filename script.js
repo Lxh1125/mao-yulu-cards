@@ -5,6 +5,8 @@ class MaoCardApp {
     this.notice = document.getElementById('notice');
     const saved = this.readState();
     const valid = new Set(maoQuotes.map(q => q.id));
+    if (Array.isArray(saved.favorites)) saved.favorites = saved.favorites.map(id => id === 62 ? 33 : id);
+    this.retainedFavorites = (Array.isArray(saved.favorites) ? saved.favorites : []).filter(id => Number.isInteger(id) && id >= 1 && id <= 150 && !valid.has(id));
     this.favorites = new Set((Array.isArray(saved.favorites) ? saved.favorites : []).filter(id => valid.has(id)));
     this.visited = new Set((Array.isArray(saved.visited) ? saved.visited : []).filter(id => valid.has(id)));
     const restored = maoQuotes.findIndex(q => q.id === saved.currentId);
@@ -18,7 +20,7 @@ class MaoCardApp {
     catch {return {};}
   }
   saveState() {
-    try {localStorage.setItem(this.storageKey, JSON.stringify({currentId:maoQuotes[this.currentIndex].id,favorites:[...this.favorites],visited:[...this.visited]}));}
+    try {localStorage.setItem(this.storageKey, JSON.stringify({currentId:maoQuotes[this.currentIndex].id,favorites:[...this.favorites,...this.retainedFavorites],visited:[...this.visited]}));}
     catch {this.notice.textContent = '浏览器无法保存阅读记录，本次阅读仍可继续。';}
   }
   buildCategories() {
@@ -47,12 +49,15 @@ class MaoCardApp {
     const quote = maoQuotes[this.currentIndex]; this.visited.add(quote.id);
     document.getElementById('cardCategory').textContent = quote.category;
     document.getElementById('cardNumber').textContent = String(quote.id).padStart(3,'0');
-    const text = document.getElementById('quote'); text.textContent = quote.content;
+    const text = document.getElementById('quote'); text.textContent = quote.content.length <= 30 ? quote.content.replace(/[，；]/g, match => match + String.fromCharCode(10)) : quote.content;
+    this.card.dataset.density = quote.content.length > 65 ? 'long' : quote.content.length > 35 ? 'medium' : 'short';
     text.classList.toggle('medium', quote.content.length > 35 && quote.content.length <= 65); text.classList.toggle('long', quote.content.length > 65);
     document.getElementById('source').textContent = quote.source;
     const art = document.getElementById('artwork'); art.hidden = false; const landscape = this.landscapeFor(quote);
     art.src = landscape.src;
     art.style.objectPosition = landscape.position;
+    const backdrop = document.getElementById('artworkBackdrop');
+    backdrop.hidden = false; backdrop.src = landscape.src; backdrop.style.objectPosition = landscape.position;
     document.getElementById('photoLocation').textContent = landscape.place;
     const selected = this.favorites.has(quote.id), favorite = document.getElementById('favorite');
     favorite.textContent = selected ? '✓ 已收藏' : '＋ 收藏'; favorite.setAttribute('aria-pressed',String(selected));
@@ -70,7 +75,11 @@ class MaoCardApp {
     document.getElementById('sourcePanel').hidden = !this.sourceOpen;
     document.getElementById('showSource').setAttribute('aria-expanded',String(this.sourceOpen));
     document.getElementById('showSource').textContent = this.sourceOpen ? '收起出处' : '查看出处';
-    document.getElementById('sourceDetail').textContent = maoQuotes[this.currentIndex].source;
+    const quote = maoQuotes[this.currentIndex];
+    document.getElementById('sourceDetail').textContent = quote.source;
+    const original = document.getElementById('originalSource'); original.hidden = !quote.sourceUrl;
+    if (quote.sourceUrl) original.href = quote.sourceUrl;
+    document.getElementById('verificationNote').textContent = quote.verificationNote || '';
     const landscape = this.landscapeFor(maoQuotes[this.currentIndex]);
     const attribution = document.getElementById('photoAttribution');
     attribution.replaceChildren(document.createTextNode(`景观摄影：${landscape.author} · ${landscape.license} · `));
@@ -100,7 +109,7 @@ class MaoCardApp {
     document.getElementById('category').addEventListener('change', e => {this.category = e.target.value; this.history = []; this.sourceOpen = false; this.render(true);});
     document.getElementById('collection').addEventListener('click', () => {this.onlyFavorites = !this.onlyFavorites; this.history = []; this.sourceOpen = false; this.render(true);});
     document.getElementById('backToAll').addEventListener('click', () => {this.onlyFavorites = false; this.category = 'all'; document.getElementById('category').value = 'all'; this.render(true);});
-    document.getElementById('artwork').addEventListener('error', e => {e.target.hidden = true; document.getElementById('photoLocation').textContent = '景观暂未加载';});
+    document.getElementById('artwork').addEventListener('error', e => {e.target.hidden = true; document.getElementById('photoLocation').textContent = '景观暂未加载'; document.getElementById('artworkBackdrop').hidden = true;});
     document.addEventListener('keydown', e => {
       // Keep Enter and Space on native controls from triggering a second card change.
       if (e.target.closest('button,select,input,textarea,a') || e.ctrlKey || e.metaKey || e.altKey) return;
